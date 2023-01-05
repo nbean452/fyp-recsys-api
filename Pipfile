@@ -9,6 +9,8 @@ dev = "python manage.py runserver 9000"
 [packages]
 django = "*"
 djangorestframework = "*"
+django-cors-headers = "*"
+djangorestframework-simplejwt = "*"
 
 [dev-packages]
 
