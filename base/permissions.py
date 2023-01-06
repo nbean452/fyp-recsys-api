@@ -1,5 +1,5 @@
 from rest_framework.permissions import BasePermission
-from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User
 
 
 class IsProfileOwner(BasePermission):
@@ -8,4 +8,4 @@ class IsProfileOwner(BasePermission):
     """
 
     def has_permission(self, request, view):
-        return request.user == get_user_model().objects.get(id=view.kwargs['id'])
+        return request.user == User.objects.get(id=view.kwargs['id'])

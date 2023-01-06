@@ -5,21 +5,21 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAdminUser
 from base.permissions import IsProfileOwner
-from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User
+from rest_framework import generics
 
 
-@api_view(['GET'])
-def getCourses(req):
-    courses = Course.objects.all()
-    serializer = CourseSerializer(courses, many=True)
-    return Response(serializer.data)
+class CourseListView(generics.ListAPIView):
+    model = Course
+    serializer_class = CourseSerializer
+    queryset = Course.objects.all()
 
 
-@api_view(['GET'])
-def getCourse(req, code: str):
-    course = Course.objects.get(code=code)
-    serializer = CourseSerializer(course)
-    return Response(serializer.data)
+class CourseView(generics.RetrieveAPIView):
+    serializer_class = CourseSerializer
+    # permission_classes = (IsAuthenticated)
+    lookup_field = "code"
+    queryset = Course.objects.all()
 
 
 @api_view(['POST'])
@@ -37,17 +37,16 @@ def getRatings(req):
     return Response(serializer.data)
 
 
-@api_view(['GET'])
-def getRating(req, id):
-    rating = Rating.objects.get(id=id)
-    serializer = RatingSerializer(rating)
-    return Response(serializer.data)
+class RatingView(generics.RetrieveAPIView):
+    serializer_class = RatingSerializer
+    lookup_field = 'id'
+    queryset = Rating.objects.all()
 
 
 @api_view(['GET'])
 @permission_classes([IsAdminUser | IsProfileOwner])
 def getUser(req, id):
-    user = get_user_model().objects.get(id=id)
+    user = User.objects.get(id=id)
     serializer = UserSerializer(user)
     return Response(serializer.data)
 
@@ -55,6 +54,20 @@ def getUser(req, id):
 @api_view(['GET'])
 @permission_classes([IsAdminUser])
 def getUsers(req):
-    users = get_user_model().objects.all()
+    users = User.objects.all()
     serializer = UserSerializer(users, many=True)
     return Response(serializer.data)
+
+
+class UserView(generics.RetrieveAPIView):
+    permission_classes = [IsAdminUser | IsProfileOwner]
+    serializer_class = UserSerializer
+    lookup_field = 'id'
+    queryset = User.objects.all()
+
+
+class UserListView(generics.ListAPIView):
+    permission_classes = [IsAdminUser]
+    model = User
+    serializer_class = UserSerializer
+    queryset = User.objects.all()
