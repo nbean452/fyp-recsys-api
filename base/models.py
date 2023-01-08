@@ -1,8 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.db import models
-
-
-# Create your models here.
+from django.utils import timezone
 
 
 class Course(models.Model):
@@ -11,8 +9,8 @@ class Course(models.Model):
     description = models.TextField()
     semester = models.SmallIntegerField()
     is_active = models.BooleanField(default=False)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(default=timezone.now)
+    updated_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return "%s %s" % (self.code, self.name)
@@ -29,8 +27,8 @@ class Rating(models.Model):
         Course, related_name='ratings', on_delete=models.CASCADE)
     rating = models.SmallIntegerField()
     comment = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(default=timezone.now)
+    updated_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return "%s: %s out of 5" % (self.course.code, self.rating)

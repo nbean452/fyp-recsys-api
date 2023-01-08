@@ -8,5 +8,5 @@ urlpatterns = [
     path('ratings/', views.getRatings),
     path('rating/<int:id>', views.RatingView.as_view()),
     path('users/', views.UserListView.as_view()),
-    path('user/<int:id>', views.UserView.as_view()),
+    path('user/<str:username>', views.UserView.as_view()),
 ]
