@@ -17,6 +17,12 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         return token
 
 
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        exclude = ['password', 'groups', 'user_permissions']
+
+
 class RegisterSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(
         required=True,

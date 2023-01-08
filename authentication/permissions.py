@@ -8,4 +8,4 @@ class IsProfileOwner(BasePermission):
     """
 
     def has_permission(self, request, view):
-        return request.user == User.objects.get(id=view.kwargs['id'])
+        return request.user == User.objects.get(username=view.kwargs['username'])
