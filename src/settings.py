@@ -32,7 +32,7 @@ IS_PROD = os.getenv('ENVIRONMENT') == 'PRODUCTION'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = not IS_PROD
 
-ALLOWED_HOSTS = ['.vercel.app', '.nbenedictcodes.com']
+ALLOWED_HOSTS = ['.vercel.app', '.nbenedictcodes.com', 'localhost']
 
 
 # Application definition

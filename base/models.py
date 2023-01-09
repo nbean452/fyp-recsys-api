@@ -4,8 +4,9 @@ from django.utils import timezone
 
 
 class Course(models.Model):
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=200, unique=True)
-    code = models.CharField(primary_key=True, max_length=8, unique=True)
+    code = models.CharField(max_length=8, unique=True)
     description = models.TextField()
     semester = models.SmallIntegerField()
     is_active = models.BooleanField(default=False)

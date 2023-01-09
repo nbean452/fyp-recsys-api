@@ -16,15 +16,21 @@ class CourseSerializer(ModelSerializer):
 
     class Meta:
         model = Course
-        fields = ['code', 'name', 'description', 'semester',
+        fields = ['id', 'code', 'name', 'description', 'semester',
                   'is_active', 'created_at', 'updated_at', 'ratings']
         depth = 1
 
 
-class RatingSerializer(ModelSerializer):
+class RatingViewSerializer(ModelSerializer):
     user = UserSerializer(read_only=True)
 
     class Meta:
         model = Rating
         fields = '__all__'
         depth = 1
+
+
+class RatingCreateSerializer(ModelSerializer):
+    class Meta:
+        model = Rating
+        fields = '__all__'
