@@ -1,9 +1,6 @@
-from rest_framework.decorators import api_view
 from base.models import Course, Rating
 from .serializers import CourseSerializer, RatingViewSerializer, RatingCreateSerializer, UserSerializer
-from rest_framework.response import Response
-from rest_framework.decorators import api_view
-from rest_framework.permissions import IsAdminUser, AllowAny
+from rest_framework.permissions import IsAdminUser
 from authentication.permissions import IsProfileOwner
 from django.contrib.auth.models import User
 from rest_framework import generics

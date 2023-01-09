@@ -104,8 +104,7 @@ SIMPLE_JWT = {
 }
 
 CORS_ALLOWED_ORIGINS = [
-    # "https://domain.com",
-    # "https://api.domain.com",
+    "https://capstone.nbenedictcodes.com",
     "http://localhost:3000",
 ]
 
