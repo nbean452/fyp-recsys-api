@@ -1,0 +1,57 @@
+[
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 1,
+      "name": "Software Engineering",
+      "code": "COMP3211",
+      "description": "Cool course",
+      "semester": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 2,
+      "name": "Software Project Management",
+      "code": "COMP3235",
+      "description": "Manage projects!",
+      "semester": 2,
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 3,
+      "name": "Problem Solving Methodology in Information Technology",
+      "code": "COMP1001",
+      "description": "Intro stuff",
+      "semester": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 4,
+      "name": "Data Structures",
+      "code": "COMP2011",
+      "description": "A difficult course!",
+      "semester": 2,
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 5,
+      "name": "Web Application Design and Development",
+      "code": "COMP3421",
+      "description": "Web stuff here! Mostly PHP and vanilla HTML",
+      "semester": 2,
+      "is_active": true
+    }
+  }
+]
