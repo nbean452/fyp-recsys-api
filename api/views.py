@@ -1,21 +1,33 @@
-from base.models import Course, Rating
-from .serializers import CourseSerializer, RatingViewSerializer, RatingCreateSerializer, UserSerializer
-from rest_framework.permissions import IsAdminUser
-from authentication.permissions import IsProfileOwner
 from django.contrib.auth.models import User
 from rest_framework import generics
+from rest_framework.permissions import IsAdminUser
+
+from authentication.permissions import IsProfileOwner
+from base.models import Course, Rating
+
+from .serializers import (CourseCreateSerializer, CourseViewSerializer,
+                          RatingCreateSerializer, RatingViewSerializer,
+                          UserSerializer)
 
 # class-based views
 
 
 class CourseListView(generics.ListAPIView):
     model = Course
-    serializer_class = CourseSerializer
+    serializer_class = CourseViewSerializer
     queryset = Course.objects.all()
+
+    def get_queryset(self):
+        queryset = self.queryset
+        filter = self.request.query_params.get('filter')
+
+        if filter:
+            queryset = queryset.filter(name__icontains=filter)
+        return queryset
 
 
 class CourseView(generics.RetrieveAPIView):
-    serializer_class = CourseSerializer
+    serializer_class = CourseViewSerializer
     lookup_field = "code"
     queryset = Course.objects.all()
 
@@ -23,14 +35,14 @@ class CourseView(generics.RetrieveAPIView):
 class CourseCreateView(generics.CreateAPIView):
     permission_classes = [IsAdminUser]
     queryset = Course.objects.all()
-    serializer_class = CourseSerializer
+    serializer_class = CourseCreateSerializer
 
 
 class CourseUpdateView(generics.UpdateAPIView):
     permission_classes = [IsAdminUser]
     queryset = Course.objects.all()
     lookup_field = 'code'
-    serializer_class = CourseSerializer
+    serializer_class = CourseCreateSerializer
 
 
 class CourseDeleteView(generics.DestroyAPIView):

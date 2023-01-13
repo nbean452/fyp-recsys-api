@@ -1,6 +1,7 @@
 from rest_framework.serializers import ModelSerializer
-from base.models import Course, Rating
+
 from authentication.serializers import UserSerializer
+from base.models import Course, Rating
 
 
 class UserRatingSerializer(ModelSerializer):
@@ -11,14 +12,21 @@ class UserRatingSerializer(ModelSerializer):
         exclude = ['course']
 
 
-class CourseSerializer(ModelSerializer):
+class CourseViewSerializer(ModelSerializer):
     ratings = UserRatingSerializer(read_only=True, many=True)
 
     class Meta:
         model = Course
-        fields = ['id', 'code', 'name', 'description', 'semester',
-                  'is_active', 'created_at', 'updated_at', 'ratings']
+        fields = ['id', 'code', 'title', 'name', 'description',
+                  'semester', 'is_active', 'created_at', 'updated_at', 'ratings']
         depth = 1
+
+
+class CourseCreateSerializer(ModelSerializer):
+    class Meta:
+        model = Course
+        fields = ['id', 'code', 'title', 'description', 'semester',
+                  'is_active', 'created_at', 'updated_at']
 
 
 class RatingViewSerializer(ModelSerializer):

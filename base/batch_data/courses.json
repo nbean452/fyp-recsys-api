@@ -3,8 +3,9 @@
     "model": "base.Course",
     "fields": {
       "id": 1,
-      "name": "Software Engineering",
+      "title": "Software Engineering",
       "code": "COMP3211",
+      "name": "COMP3211 Software Engineering",
       "description": "Cool course",
       "semester": 1,
       "is_active": true
@@ -14,8 +15,9 @@
     "model": "base.Course",
     "fields": {
       "id": 2,
-      "name": "Software Project Management",
+      "title": "Software Project Management",
       "code": "COMP3235",
+      "name": "COMP3235 Software Project Management",
       "description": "Manage projects!",
       "semester": 2,
       "is_active": true
@@ -25,8 +27,9 @@
     "model": "base.Course",
     "fields": {
       "id": 3,
-      "name": "Problem Solving Methodology in Information Technology",
+      "title": "Problem Solving Methodology in Information Technology",
       "code": "COMP1001",
+      "name": "COMP1001 Problem Solving Methodology in Information Technology",
       "description": "Intro stuff",
       "semester": 1,
       "is_active": true
@@ -36,8 +39,9 @@
     "model": "base.Course",
     "fields": {
       "id": 4,
-      "name": "Data Structures",
+      "title": "Data Structures",
       "code": "COMP2011",
+      "name": "COMP2011 Data Structures",
       "description": "A difficult course!",
       "semester": 2,
       "is_active": true
@@ -47,8 +51,9 @@
     "model": "base.Course",
     "fields": {
       "id": 5,
-      "name": "Web Application Design and Development",
+      "title": "Web Application Design and Development",
       "code": "COMP3421",
+      "name": "COMP3421 Web Application Design and Development",
       "description": "Web stuff here! Mostly PHP and vanilla HTML",
       "semester": 2,
       "is_active": true

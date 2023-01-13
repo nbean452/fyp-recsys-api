@@ -1,19 +1,44 @@
-from .serializers import MyTokenObtainPairSerializer
-from rest_framework_simplejwt.views import TokenObtainPairView
-from rest_framework import generics, status
 from django.contrib.auth.models import User
+from rest_framework import generics, status
 from rest_framework.permissions import AllowAny
-from .serializers import RegisterSerializer
 from rest_framework.response import Response
-from .serializers import MyTokenObtainPairSerializer
+from rest_framework_simplejwt.exceptions import InvalidToken, TokenError
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from rest_framework_simplejwt.views import TokenObtainPairView
+
+from .serializers import RegisterSerializer
+
 # Create your views here.
 
 
-class MyTokenObtainPairView(TokenObtainPairView):
-    serializer_class = MyTokenObtainPairSerializer
+class LoginView(TokenObtainPairView):
+    serializer_class = TokenObtainPairSerializer
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+
+        try:
+            serializer.is_valid(raise_exception=True)
+        except TokenError as e:
+            raise InvalidToken(e.args[0])
+
+        user = User.objects.get(username=request.data["username"])
+
+        json_response = {
+            "username": user.username,
+            "email": user.email,
+            "id": user.pk,
+            "first_name": user.first_name,
+            "last_name": user.last_name,
+            "token": {
+                **serializer.validated_data
+            }
+        }
+
+        return Response(json_response, status=status.HTTP_200_OK)
 
 
-class RegisterView(generics.CreateAPIView, MyTokenObtainPairSerializer):
+class RegisterView(generics.CreateAPIView, TokenObtainPairSerializer):
     queryset = User.objects.all()
     permission_classes = [AllowAny]
     serializer_class = RegisterSerializer
@@ -24,14 +49,18 @@ class RegisterView(generics.CreateAPIView, MyTokenObtainPairSerializer):
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
 
-        user = User.objects.get(username=serializer.data['username'])
-
+        user = User.objects.get(username=serializer.data["username"])
         refresh = self.get_token(user)
+
         json_response = {
-            "user": serializer.data,
+            "username": user.username,
+            "email": user.email,
+            "id": user.pk,
+            "first_name": user.first_name,
+            "last_name": user.last_name,
             "token": {
-                'refresh': str(refresh),
-                'access': str(refresh.access_token),
+                "refresh": str(refresh),
+                "access": str(refresh.access_token),
             }
         }
 
