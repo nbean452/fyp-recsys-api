@@ -1,15 +1,16 @@
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils import timezone
+from django.core.validators import int_list_validator
 
 
 class Course(models.Model):
     id = models.AutoField(primary_key=True)
-    title = models.CharField(max_length=200, unique=True)
-    code = models.CharField(max_length=8, unique=True)
-    name = models.CharField(max_length=210, unique=True)
+    title = models.CharField(max_length=200)
+    code = models.CharField(max_length=20)
+    name = models.CharField(max_length=210)
     description = models.TextField()
-    semester = models.SmallIntegerField()
+    availability = models.CharField(max_length=20)
     is_active = models.BooleanField(default=False)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(default=timezone.now)

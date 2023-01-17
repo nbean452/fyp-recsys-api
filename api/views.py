@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from rest_framework import generics
-from rest_framework.permissions import IsAdminUser
+from rest_framework.response import Response
+from rest_framework.permissions import IsAdminUser, AllowAny
 
 from authentication.permissions import IsProfileOwner
 from base.models import Course, Rating
@@ -15,10 +16,26 @@ from .serializers import (CourseCreateSerializer, CourseViewSerializer,
 class CourseListView(generics.ListAPIView):
     model = Course
     serializer_class = CourseViewSerializer
-    queryset = Course.objects.all()
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            for key in serializer.data:
+                key['availability'] = key['availability'].split(
+                    ', ')
+            return self.get_paginated_response(serializer.data)
+
+        serializer = self.get_serializer(queryset, many=True)
+        for key in serializer.data:
+            key['availability'] = key['availability'].split(
+                ', ')
+        return Response(serializer.data)
 
     def get_queryset(self):
-        queryset = self.queryset
+        queryset = Course.objects.all()
         filter = self.request.query_params.get('filter')
 
         if filter:
@@ -31,9 +48,20 @@ class CourseView(generics.RetrieveAPIView):
     lookup_field = "code"
     queryset = Course.objects.all()
 
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = self.get_serializer(instance)
+
+        json_response = serializer.data
+
+        json_response['availability'] = json_response['availability'].split(
+            ', ')
+
+        return Response(json_response)
+
 
 class CourseCreateView(generics.CreateAPIView):
-    permission_classes = [IsAdminUser]
+    permission_classes = [AllowAny]
     queryset = Course.objects.all()
     serializer_class = CourseCreateSerializer
 
