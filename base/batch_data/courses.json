@@ -58,5 +58,77 @@
       "semester": 2,
       "is_active": true
     }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 6,
+      "title": "Introduction to Computer Systems",
+      "code": "COMP1411",
+      "name": "COMP1411 Introduction to Computer Systems",
+      "description": "Learn computer system tuff!",
+      "semester": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 7,
+      "title": "Introduction to Data Analytics",
+      "code": "COMP1433",
+      "name": "COMP1433 Introduction to Data Analytics",
+      "description": "Learn analytics using R",
+      "semester": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 8,
+      "title": "Discrete Mathematics",
+      "code": "COMP2012",
+      "name": "COMP2012 Discrete Mathematics",
+      "description": "Use maths for Djikstra algorithm",
+      "semester": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 9,
+      "title": "Object-Oriented Programming",
+      "code": "COMP2021",
+      "name": "COMP2021 Object-Oriented Programming",
+      "description": "Intro stuff",
+      "semester": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 10,
+      "title": "Operating Systems",
+      "code": "COMP2432",
+      "name": "COMP2432 Operating Systems",
+      "description": "Intro stuff",
+      "semester": 1,
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 11,
+      "title": "Algorithms Engineering",
+      "code": "COMP3022",
+      "name": "COMP3022 Algorithms Engineering",
+      "description": "Intro stuff",
+      "semester": 1,
+      "is_active": true
+    }
   }
 ]
