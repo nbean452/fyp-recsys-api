@@ -3,11 +3,11 @@
     "model": "base.Course",
     "fields": {
       "id": 1,
-      "title": "Software Engineering",
-      "code": "COMP3211",
-      "name": "COMP3211 Software Engineering",
-      "description": "Cool course",
-      "semester": 1,
+      "title": "Computational Thinking and Problem Solving",
+      "code": "COMP1002",
+      "name": "COMP1002 Computational Thinking and Problem Solving",
+      "description": "Empty description",
+      "availability": "A, U, U",
       "is_active": true
     }
   },
@@ -15,11 +15,11 @@
     "model": "base.Course",
     "fields": {
       "id": 2,
-      "title": "Software Project Management",
-      "code": "COMP3235",
-      "name": "COMP3235 Software Project Management",
-      "description": "Manage projects!",
-      "semester": 2,
+      "title": "Introduction to Artificial Intelligence and Data Analytics",
+      "code": "COMP1004",
+      "name": "COMP1004 Introduction to Artificial Intelligence and Data Analytics",
+      "description": "Empty description",
+      "availability": "A, A, U",
       "is_active": true
     }
   },
@@ -27,11 +27,11 @@
     "model": "base.Course",
     "fields": {
       "id": 3,
-      "title": "Problem Solving Methodology in Information Technology",
-      "code": "COMP1001",
-      "name": "COMP1001 Problem Solving Methodology in Information Technology",
-      "description": "Intro stuff",
-      "semester": 1,
+      "title": "Programming Fundamentals",
+      "code": "COMP1011",
+      "name": "COMP1011 Programming Fundamentals",
+      "description": "Empty description",
+      "availability": "U, A, U",
       "is_active": true
     }
   },
@@ -39,11 +39,11 @@
     "model": "base.Course",
     "fields": {
       "id": 4,
-      "title": "Data Structures",
-      "code": "COMP2011",
-      "name": "COMP2011 Data Structures",
-      "description": "A difficult course!",
-      "semester": 2,
+      "title": "Programming Fundamentals and Applications",
+      "code": "COMP1012",
+      "name": "COMP1012 Programming Fundamentals and Applications",
+      "description": "Empty description",
+      "availability": "A, U, U",
       "is_active": true
     }
   },
@@ -51,11 +51,11 @@
     "model": "base.Course",
     "fields": {
       "id": 5,
-      "title": "Web Application Design and Development",
-      "code": "COMP3421",
-      "name": "COMP3421 Web Application Design and Development",
-      "description": "Web stuff here! Mostly PHP and vanilla HTML",
-      "semester": 2,
+      "title": "Introduction to Computer Systems",
+      "code": "COMP1411",
+      "name": "COMP1411 Introduction to Computer Systems",
+      "description": "Empty description",
+      "availability": "U, A, U",
       "is_active": true
     }
   },
@@ -63,11 +63,11 @@
     "model": "base.Course",
     "fields": {
       "id": 6,
-      "title": "Introduction to Computer Systems",
-      "code": "COMP1411",
-      "name": "COMP1411 Introduction to Computer Systems",
-      "description": "Learn computer system tuff!",
-      "semester": 1,
+      "title": "Introduction to Data Analytics",
+      "code": "COMP1433",
+      "name": "COMP1433 Introduction to Data Analytics",
+      "description": "Empty description",
+      "availability": "U, A, U",
       "is_active": true
     }
   },
@@ -75,11 +75,11 @@
     "model": "base.Course",
     "fields": {
       "id": 7,
-      "title": "Introduction to Data Analytics",
-      "code": "COMP1433",
-      "name": "COMP1433 Introduction to Data Analytics",
-      "description": "Learn analytics using R",
-      "semester": 1,
+      "title": "Data Structures",
+      "code": "COMP2011",
+      "name": "COMP2011 Data Structures",
+      "description": "Empty description",
+      "availability": "A, U, U",
       "is_active": true
     }
   },
@@ -90,8 +90,8 @@
       "title": "Discrete Mathematics",
       "code": "COMP2012",
       "name": "COMP2012 Discrete Mathematics",
-      "description": "Use maths for Djikstra algorithm",
-      "semester": 1,
+      "description": "Empty description",
+      "availability": "A, U, U",
       "is_active": true
     }
   },
@@ -102,8 +102,8 @@
       "title": "Object-Oriented Programming",
       "code": "COMP2021",
       "name": "COMP2021 Object-Oriented Programming",
-      "description": "Intro stuff",
-      "semester": 1,
+      "description": "Empty description",
+      "availability": "A, U, U",
       "is_active": true
     }
   },
@@ -111,11 +111,11 @@
     "model": "base.Course",
     "fields": {
       "id": 10,
-      "title": "Operating Systems",
-      "code": "COMP2432",
-      "name": "COMP2432 Operating Systems",
-      "description": "Intro stuff",
-      "semester": 1,
+      "title": "E-Business",
+      "code": "COMP2121",
+      "name": "COMP2121 E-Business",
+      "description": "Empty description",
+      "availability": "A, U, U",
       "is_active": true
     }
   },
@@ -123,11 +123,983 @@
     "model": "base.Course",
     "fields": {
       "id": 11,
+      "title": "Computer Networking",
+      "code": "COMP2322",
+      "name": "COMP2322 Computer Networking",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 12,
+      "title": "Database Systems",
+      "code": "COMP2411",
+      "name": "COMP2411 Database Systems",
+      "description": "Empty description",
+      "availability": "A, U, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 13,
+      "title": "Computer Organization",
+      "code": "COMP2421",
+      "name": "COMP2421 Computer Organization",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 14,
+      "title": "Operating Systems",
+      "code": "COMP2432",
+      "name": "COMP2432 Operating Systems",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 15,
+      "title": "Technology Beyond Borders: Service Learning Across Cultural, Ethnic and Community Lines",
+      "code": "COMP2S01",
+      "name": "COMP2S01 Technology Beyond Borders: Service Learning Across Cultural, Ethnic and Community Lines",
+      "description": "Empty description",
+      "availability": "A, U, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 16,
+      "title": "Technology Beyond Borders: Service Learning Across Cultural, Ethnic and Community Lines",
+      "code": "COMP2S01S",
+      "name": "COMP2S01S Technology Beyond Borders: Service Learning Across Cultural, Ethnic and Community Lines",
+      "description": "Empty description",
+      "availability": "U, U, A",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 17,
+      "title": "Design and Analysis of Algorithms",
+      "code": "COMP3011",
+      "name": "COMP3011 Design and Analysis of Algorithms",
+      "description": "Empty description",
+      "availability": "A, U, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 18,
       "title": "Algorithms Engineering",
       "code": "COMP3022",
       "name": "COMP3022 Algorithms Engineering",
-      "description": "Intro stuff",
-      "semester": 1,
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 19,
+      "title": "Social and Collaborative Computing",
+      "code": "COMP3121",
+      "name": "COMP3121 Social and Collaborative Computing",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 20,
+      "title": "Information Systems Development",
+      "code": "COMP3122",
+      "name": "COMP3122 Information Systems Development",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 21,
+      "title": "Business Intelligence and Customer Relationship Management",
+      "code": "COMP3134",
+      "name": "COMP3134 Business Intelligence and Customer Relationship Management",
+      "description": "Empty description",
+      "availability": "A, U, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 22,
+      "title": "Software Engineering",
+      "code": "COMP3211",
+      "name": "COMP3211 Software Engineering",
+      "description": "Empty description",
+      "availability": "A, U, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 23,
+      "title": "Software Project Management",
+      "code": "COMP3235",
+      "name": "COMP3235 Software Project Management",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 24,
+      "title": "Computer Systems Security",
+      "code": "COMP3334",
+      "name": "COMP3334 Computer Systems Security",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 25,
+      "title": "Database Security",
+      "code": "COMP3335",
+      "name": "COMP3335 Database Security",
+      "description": "Empty description",
+      "availability": "A, U, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 26,
+      "title": "Web Application Design and Development",
+      "code": "COMP3421",
+      "name": "COMP3421 Web Application Design and Development",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 27,
+      "title": "Creative Digital Media Design",
+      "code": "COMP3422",
+      "name": "COMP3422 Creative Digital Media Design",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 28,
+      "title": "Human Computer Interaction",
+      "code": "COMP3423",
+      "name": "COMP3423 Human Computer Interaction",
+      "description": "Empty description",
+      "availability": "A, U, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 29,
+      "title": "System Programming",
+      "code": "COMP3438",
+      "name": "COMP3438 System Programming",
+      "description": "Empty description",
+      "availability": "A, U, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 30,
+      "title": "Legal Aspects and Ethics of Computing",
+      "code": "COMP3511",
+      "name": "COMP3511 Legal Aspects and Ethics of Computing",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 31,
+      "title": "Legal Aspects, Professionalism and Ethics of Computing",
+      "code": "COMP3512",
+      "name": "COMP3512 Legal Aspects, Professionalism and Ethics of Computing",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 32,
+      "title": "IT Entrepreneurship",
+      "code": "COMP3531",
+      "name": "COMP3531 IT Entrepreneurship",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 33,
+      "title": "Service Learning and Civic Engagement in the Information Age",
+      "code": "COMP3911/COMP3S03",
+      "name": "COMP3911/COMP3S03 Service Learning and Civic Engagement in the Information Age",
+      "description": "Empty description",
+      "availability": "U, U, A",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 34,
+      "title": "Socially Responsible Global Leadership in A Digital World",
+      "code": "COMP3S02",
+      "name": "COMP3S02 Socially Responsible Global Leadership in A Digital World",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 35,
+      "title": "Theory of Computation",
+      "code": "COMP4011",
+      "name": "COMP4011 Theory of Computation",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 36,
+      "title": "E-Commerce Technology and Applications",
+      "code": "COMP4121",
+      "name": "COMP4121 E-Commerce Technology and Applications",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 37,
+      "title": "Game Design and Development",
+      "code": "COMP4122",
+      "name": "COMP4122 Game Design and Development",
+      "description": "Empty description",
+      "availability": "A, U, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 38,
+      "title": "Business Process and Workflow Management",
+      "code": "COMP4123",
+      "name": "COMP4123 Business Process and Workflow Management",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 39,
+      "title": "Operations Research and Logistics Management",
+      "code": "COMP4125",
+      "name": "COMP4125 Operations Research and Logistics Management",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 40,
+      "title": "Information Systems Audit and Control",
+      "code": "COMP4127",
+      "name": "COMP4127 Information Systems Audit and Control",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 41,
+      "title": "Information Retrieval",
+      "code": "COMP4133",
+      "name": "COMP4133 Information Retrieval",
+      "description": "Empty description",
+      "availability": "A, U, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 42,
+      "title": "E-Payment and Cryptocurrency",
+      "code": "COMP4142",
+      "name": "COMP4142 E-Payment and Cryptocurrency",
+      "description": "Empty description",
+      "availability": "A, U, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 43,
+      "title": "Principles and Practice of Internet Security",
+      "code": "COMP4334",
+      "name": "COMP4334 Principles and Practice of Internet Security",
+      "description": "Empty description",
+      "availability": "A, U, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 44,
+      "title": "Mobile Computing",
+      "code": "COMP4342",
+      "name": "COMP4342 Mobile Computing",
+      "description": "Empty description",
+      "availability": "A, U, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 45,
+      "title": "Computer Graphics",
+      "code": "COMP4422",
+      "name": "COMP4422 Computer Graphics",
+      "description": "Empty description",
+      "availability": "A, U, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 46,
+      "title": "Computer Vision",
+      "code": "COMP4423",
+      "name": "COMP4423 Computer Vision",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 47,
+      "title": "Extended Reality: Theory and Practice",
+      "code": "COMP4424",
+      "name": "COMP4424 Extended Reality: Theory and Practice",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 48,
+      "title": "Artificial Intelligence",
+      "code": "COMP4431",
+      "name": "COMP4431 Artificial Intelligence",
+      "description": "Empty description",
+      "availability": "A, U, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 49,
+      "title": "Machine Learning",
+      "code": "COMP4432",
+      "name": "COMP4432 Machine Learning",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 50,
+      "title": "Data Mining and Data Warehousing",
+      "code": "COMP4433",
+      "name": "COMP4433 Data Mining and Data Warehousing",
+      "description": "Empty description",
+      "availability": "A, U, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 51,
+      "title": "Big Data Analytics",
+      "code": "COMP4434",
+      "name": "COMP4434 Big Data Analytics",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 52,
+      "title": "Service and Cloud Computing",
+      "code": "COMP4442",
+      "name": "COMP4442 Service and Cloud Computing",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 53,
+      "title": "Intellectual Property Protection and Management",
+      "code": "COMP4512",
+      "name": "COMP4512 Intellectual Property Protection and Management",
+      "description": "Empty description",
+      "availability": "A, U, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 54,
+      "title": "Emerging Topics in Fintech",
+      "code": "COMP4531",
+      "name": "COMP4531 Emerging Topics in Fintech",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 55,
+      "title": "Data Structures and Database Systems",
+      "code": "COMP5112",
+      "name": "COMP5112 Data Structures and Database Systems",
+      "description": "Empty description",
+      "availability": "A, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 56,
+      "title": "Data Structures and Database Systems",
+      "code": "COMP5112",
+      "name": "COMP5112 Data Structures and Database Systems",
+      "description": "Empty description",
+      "availability": "D, U, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 57,
+      "title": "Advanced Data Analytics",
+      "code": "COMP5152",
+      "name": "COMP5152 Advanced Data Analytics",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 58,
+      "title": "Software Engineering and Development",
+      "code": "COMP5241",
+      "name": "COMP5241 Software Engineering and Development",
+      "description": "Empty description",
+      "availability": "A, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 59,
+      "title": "Internet Infrastructure and Protocols",
+      "code": "COMP5311",
+      "name": "COMP5311 Internet Infrastructure and Protocols",
+      "description": "Empty description",
+      "availability": "A, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 60,
+      "title": "Internet Computing and Applications",
+      "code": "COMP5322",
+      "name": "COMP5322 Internet Computing and Applications",
+      "description": "Empty description",
+      "availability": "A, U, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 61,
+      "title": "Cyber and Internet Security",
+      "code": "COMP5355",
+      "name": "COMP5355 Cyber and Internet Security",
+      "description": "Empty description",
+      "availability": "A, U, A",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 62,
+      "title": "Natural Language Processing",
+      "code": "COMP5423",
+      "name": "COMP5423 Natural Language Processing",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 63,
+      "title": "Extended Reality",
+      "code": "COMP5424",
+      "name": "COMP5424 Extended Reality",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 64,
+      "title": "Multimedia Coding and Networking",
+      "code": "COMP5425",
+      "name": "COMP5425 Multimedia Coding and Networking",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 65,
+      "title": "Big Data Computing",
+      "code": "COMP5434",
+      "name": "COMP5434 Big Data Computing",
+      "description": "Empty description",
+      "availability": "A, A, A",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 66,
+      "title": "Big Data Computing",
+      "code": "COMP5434",
+      "name": "COMP5434 Big Data Computing",
+      "description": "Empty description",
+      "availability": "U, D, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 67,
+      "title": "Artificial Intelligence Concepts",
+      "code": "COMP5511",
+      "name": "COMP5511 Artificial Intelligence Concepts",
+      "description": "Empty description",
+      "availability": "A, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 68,
+      "title": "Artificial Intelligence Concepts",
+      "code": "COMP5511",
+      "name": "COMP5511 Artificial Intelligence Concepts",
+      "description": "Empty description",
+      "availability": "D, U, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 69,
+      "title": "Financial Computing",
+      "code": "COMP5513",
+      "name": "COMP5513 Financial Computing",
+      "description": "Empty description",
+      "availability": "A, U, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 70,
+      "title": "Human Computer Interaction",
+      "code": "COMP5517",
+      "name": "COMP5517 Human Computer Interaction",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 71,
+      "title": "Distributed Ledger Technology, Cryptocurrency And E-Payment",
+      "code": "COMP5521",
+      "name": "COMP5521 Distributed Ledger Technology, Cryptocurrency And E-Payment",
+      "description": "Empty description",
+      "availability": "A, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 72,
+      "title": "Computer Vision and Image Processing",
+      "code": "COMP5523",
+      "name": "COMP5523 Computer Vision and Image Processing",
+      "description": "Empty description",
+      "availability": "A, U, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 73,
+      "title": "Computer Vision and Image Processing",
+      "code": "COMP5523",
+      "name": "COMP5523 Computer Vision and Image Processing",
+      "description": "Empty description",
+      "availability": "U, D, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 74,
+      "title": "Machine Learning and Data Analytics",
+      "code": "COMP5541",
+      "name": "COMP5541 Machine Learning and Data Analytics",
+      "description": "Empty description",
+      "availability": "A, U, A",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 75,
+      "title": "Optimization and Applications",
+      "code": "COMP5542",
+      "name": "COMP5542 Optimization and Applications",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 76,
+      "title": "Applied Cryptography for Financial Applications",
+      "code": "COMP5563",
+      "name": "COMP5563 Applied Cryptography for Financial Applications",
+      "description": "Empty description",
+      "availability": "A, U, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 77,
+      "title": "Machine Learning and Applications in Finance",
+      "code": "COMP5564",
+      "name": "COMP5564 Machine Learning and Applications in Finance",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 78,
+      "title": "Decentralized Apps Fundamentals and Development",
+      "code": "COMP5565",
+      "name": "COMP5565 Decentralized Apps Fundamentals and Development",
+      "description": "Empty description",
+      "availability": "A, U, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 79,
+      "title": "Blockchain and Smart Contract Security",
+      "code": "COMP5566",
+      "name": "COMP5566 Blockchain and Smart Contract Security",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 80,
+      "title": "Distributed Algorithms and Protocols for Blockchains",
+      "code": "COMP5567",
+      "name": "COMP5567 Distributed Algorithms and Protocols for Blockchains",
+      "description": "Empty description",
+      "availability": "A, U, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 81,
+      "title": "Decentralized Finance",
+      "code": "COMP5568",
+      "name": "COMP5568 Decentralized Finance",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 82,
+      "title": "Fintech Regulation and Compliance",
+      "code": "COMP5569",
+      "name": "COMP5569 Fintech Regulation and Compliance",
+      "description": "Empty description",
+      "availability": "U, U, A",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 83,
+      "title": "Big Data Analytics and Artificial Intelligence",
+      "code": "COMP6434",
+      "name": "COMP6434 Big Data Analytics and Artificial Intelligence",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 84,
+      "title": "Cryptography and Blockchain",
+      "code": "COMP6521",
+      "name": "COMP6521 Cryptography and Blockchain",
+      "description": "Empty description",
+      "availability": "U, U, A",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 85,
+      "title": "Advanced Topics in Computer Algorithms",
+      "code": "COMP6701",
+      "name": "COMP6701 Advanced Topics in Computer Algorithms",
+      "description": "Empty description",
+      "availability": "A, U, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 86,
+      "title": "Advanced Topics in Data Analytics",
+      "code": "COMP6703",
+      "name": "COMP6703 Advanced Topics in Data Analytics",
+      "description": "Empty description",
+      "availability": "A, U, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 87,
+      "title": "Advanced Topics in Optimization",
+      "code": "COMP6704",
+      "name": "COMP6704 Advanced Topics in Optimization",
+      "description": "Empty description",
+      "availability": "A, U, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 88,
+      "title": "Advanced Topics in Visual Computing",
+      "code": "COMP6706",
+      "name": "COMP6706 Advanced Topics in Visual Computing",
+      "description": "Empty description",
+      "availability": "A, U, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 89,
+      "title": "Advanced Computational Intelligence",
+      "code": "COMP6707",
+      "name": "COMP6707 Advanced Computational Intelligence",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 90,
+      "title": "Advanced Natural Language Processing",
+      "code": "COMP6709",
+      "name": "COMP6709 Advanced Natural Language Processing",
+      "description": "Empty description",
+      "availability": "U, A, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 91,
+      "title": "Advanced Machine Learning",
+      "code": "COMP6710",
+      "name": "COMP6710 Advanced Machine Learning",
+      "description": "Empty description",
+      "availability": "A, U, U",
+      "is_active": true
+    }
+  },
+  {
+    "model": "base.Course",
+    "fields": {
+      "id": 92,
+      "title": "Advanced Security and Privacy",
+      "code": "COMP6712",
+      "name": "COMP6712 Advanced Security and Privacy",
+      "description": "Empty description",
+      "availability": "U, A, U",
       "is_active": true
     }
   }
