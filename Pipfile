@@ -6,6 +6,7 @@ name = "pypi"
 [scripts]
 dev = "python manage.py runserver 9000"
 loaddata = "python manage.py loaddata base/batch_data/courses.json"
+admin = "python manage.py createsuperuser --noinput"
 
 [packages]
 django = "*"
@@ -15,6 +16,8 @@ djangorestframework-simplejwt = "*"
 python-dotenv = "*"
 psycopg2-binary = "*"
 djangorestframework-camel-case = "*"
+requests = "*"
+beautifulsoup4 = "*"
 
 [dev-packages]
 
