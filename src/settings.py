@@ -122,6 +122,7 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     "https://capstone.nbenedictcodes.com",
     "http://localhost:3000",
+    "https://vercel.app"
 ]
 
 ROOT_URLCONF = 'src.urls'
