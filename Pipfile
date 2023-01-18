@@ -16,6 +16,7 @@ djangorestframework-simplejwt = "*"
 python-dotenv = "*"
 psycopg2-binary = "*"
 djangorestframework-camel-case = "*"
+django-debug-toolbar = "*"
 
 [dev-packages]
 requests = "*"
