@@ -121,8 +121,10 @@ SIMPLE_JWT = {
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     "https://capstone.nbenedictcodes.com",
-    "http://localhost:3000",
-    "https://vercel.app"
+    "http://localhost:3000"
+]
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https:\/\/.*\.vercel\.app$",
 ]
 
 ROOT_URLCONF = 'src.urls'
