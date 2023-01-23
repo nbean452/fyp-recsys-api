@@ -60,6 +60,12 @@ class CourseView(generics.RetrieveAPIView):
         return Response(json_response)
 
 
+class CourseRecommendationView(generics.RetrieveAPIView):
+    serializer_class = CourseViewSerializer
+    lookup_field = "code"
+    queryset = Course.objects.all()
+
+
 class CourseCreateView(generics.CreateAPIView):
     permission_classes = [AllowAny]
     queryset = Course.objects.all()

@@ -9,6 +9,10 @@ urlpatterns = [
     path('course/delete/<str:code>', views.CourseDeleteView.as_view()),
     path('course/<str:code>/', views.CourseView.as_view()),
 
+    # recommendations!
+    path('recommend/course/<str:code>/',
+         views.CourseRecommendationView.as_view()),
+
     path('ratings/', views.RatingListView.as_view()),
     path('rating/add/', views.RatingCreateView.as_view()),
     path('rating/edit/<int:id>', views.RatingUpdateView.as_view()),
