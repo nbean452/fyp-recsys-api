@@ -22,6 +22,7 @@ nltk = "*"
 pandas = "*"
 numpy = "*"
 scikit-learn = "*"
+django-pandas = "*"
 
 [dev-packages]
 requests = "*"
