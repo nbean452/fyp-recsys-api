@@ -1,1 +1,0 @@
-pipenv run python tools/scraper/tables.py
