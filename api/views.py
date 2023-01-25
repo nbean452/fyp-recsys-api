@@ -77,7 +77,7 @@ class CourseRecommendationView(generics.RetrieveAPIView):
 
         df = read_frame(self.queryset)
         # df.to_csv('tools/scraper/data.csv')
-        print(df.head()[['code', 'description']])
+        # print(df.head()[['code', 'description']])
 
         tfv = TfidfVectorizer(min_df=3, max_features=None,
                               strip_accents='unicode', analyzer='word', token_pattern=r'\w{1,}',
