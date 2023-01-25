@@ -17,10 +17,6 @@ python-dotenv = "*"
 psycopg2-binary = "*"
 djangorestframework-camel-case = "*"
 django-debug-toolbar = "*"
-pandas = "*"
-numpy = "*"
-scikit-learn = "*"
-django-pandas = "*"
 
 [dev-packages]
 requests = "*"
