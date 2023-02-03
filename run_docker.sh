@@ -1,1 +1,1 @@
-docker compose down && docker compose build --pull && docker compose up
+docker compose down && docker system prune -f && docker compose up --build -d
