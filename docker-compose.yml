@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  django:
+    image: nbean452/fyp-recsys-api
+    build: .
+    ports:
+      - "9000:9000"
+    environment:
+      - ENVIRONMENT=${ENVIRONMENT}
+      - SECRET_KEY=${SECRET_KEY}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
