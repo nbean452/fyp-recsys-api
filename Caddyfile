@@ -4,8 +4,12 @@
 }
 
 # if you wanna reroute your whole localhost!
+# http://localhost {
+# 	respond "Hello, world!"
+# }
+
 http://localhost {
-	respond "Hello, world!"
+	reverse_proxy fyp-recsys-web:3000
 }
 
 # using subdomains in localhost is simple just like that!
@@ -14,6 +18,12 @@ http://api.localhost {
 }
 
 # prod subdomains
+capstone.nbenedictcodes.com {
+	reverse_proxy fyp-recsys-web:3000 {
+		header_down Strict-Transport-Security max-age=31536000;
+	}
+}
+
 capstone-api.nbenedictcodes.com {
 	reverse_proxy fyp-recsys-api:9000 {
 		header_down Strict-Transport-Security max-age=31536000;

@@ -5,8 +5,6 @@ services:
     container_name: fyp-recsys-api
     image: nbean452/fyp-recsys-api
     build: .
-    ports:
-      - "9000:9000"
     environment:
       - ENVIRONMENT=${ENVIRONMENT}
       - SECRET_KEY=${SECRET_KEY}
@@ -15,6 +13,14 @@ services:
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_HOST=${DB_HOST}
       - DB_PORT=${DB_PORT}
+
+  nextjs:
+    container_name: fyp-recsys-web
+    image: "nbean452/fyp-recsys-web"
+    build: ../fyp-recsys-web/
+    environment:
+      - NEXT_PUBLIC_PROD_URL=https://capstone-api.nbenedictcodes.com
+      - NEXT_PUBLIC_DEV_URL=http://localhost:9000
 
   caddy:
     image: caddy/caddy:2.2.1-alpine
