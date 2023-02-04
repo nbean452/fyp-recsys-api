@@ -1,1 +1,1 @@
-git pull && docker compose down && docker system prune -f && docker compose up --build -d
+docker compose down && docker system prune -f && docker compose up --build -d
