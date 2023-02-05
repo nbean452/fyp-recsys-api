@@ -6,7 +6,7 @@ services:
     image: fyp-recsys-web
     build: ../fyp-recsys-web/
     env_file:
-      - ./.env
+      - ../fyp-recsys-web/.env
 
   api:
     container_name: fyp-recsys-api
