@@ -7,8 +7,7 @@ ENV PYTHONUNBUFFERED 1
 
 RUN mkdir -p /code
 
-RUN adduser -D --uid 10000 runner --system
-
+RUN useradd --uid 10000 runner
 
 WORKDIR /code
 
