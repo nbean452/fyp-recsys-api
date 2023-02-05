@@ -3,14 +3,12 @@ version: "3.9"
 services:
   web:
     container_name: fyp-recsys-web
-    image: fyp-recsys-web
+    image: nbean452/fyp-recsys-web
     build: ../fyp-recsys-web/
-    env_file:
-      - ../fyp-recsys-web/.env
 
   api:
     container_name: fyp-recsys-api
-    image: fyp-recsys-api
+    image: nbean452/fyp-recsys-api
     build: .
     env_file:
       - ./.env
