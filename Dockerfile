@@ -7,8 +7,7 @@ ENV PYTHONUNBUFFERED 1
 
 RUN mkdir -p /code
 
-RUN useradd -D --uid 10000 runner
-
+RUN useradd -D runner
 
 WORKDIR /code
 
@@ -24,6 +23,6 @@ COPY . /code/
 
 RUN python manage.py collectstatic --noinput
 
-USER 10000
+USER runner
 
 CMD [ "python", "manage.py", "runserver", "0.0.0.0:9000"]
