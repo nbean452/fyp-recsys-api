@@ -5,10 +5,10 @@ FROM python:${PYTHON_VERSION}
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
+RUN mkdir -p /code
+
 RUN useradd --uid 10000 runner
 USER 10000
-
-RUN mkdir -p /code
 
 WORKDIR /code
 
