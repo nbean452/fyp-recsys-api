@@ -21,23 +21,6 @@ class CourseListView(generics.ListAPIView):
     model = Course
     serializer_class = CourseViewSerializer
 
-    def list(self, request, *args, **kwargs):
-        queryset = self.filter_queryset(self.get_queryset())
-
-        page = self.paginate_queryset(queryset)
-        if page is not None:
-            serializer = self.get_serializer(page, many=True)
-            for key in serializer.data:
-                key['availability'] = key['availability'].split(
-                    ', ')
-            return self.get_paginated_response(serializer.data)
-
-        serializer = self.get_serializer(queryset, many=True)
-        for key in serializer.data:
-            key['availability'] = key['availability'].split(
-                ', ')
-        return Response(serializer.data)
-
     def get_queryset(self):
         queryset = Course.objects.all()
         filter = self.request.query_params.get('filter')
@@ -51,19 +34,6 @@ class CourseView(generics.RetrieveAPIView):
     serializer_class = CourseViewSerializer
     lookup_field = "code"
     queryset = Course.objects.all()
-
-    def retrieve(self, request, *args, **kwargs):
-        instance = self.get_object()
-        serializer = self.get_serializer(instance)
-
-        json_response = serializer.data
-
-        json_response['availability'] = json_response['availability'].split(
-            ', ')
-
-        return Response(json_response)
-
-# TODO: figure out what is this! retrieve or list!
 
 
 class CourseRecommendationView(generics.RetrieveAPIView):
@@ -98,7 +68,7 @@ class CourseRecommendationView(generics.RetrieveAPIView):
 
             sig_scores = sorted(sig_scores, key=lambda x: x[1], reverse=True)
 
-            sig_scores = sig_scores[1:11]
+            sig_scores = sig_scores[1:4]
 
             course_indices = [i[0] for i in sig_scores]
 
