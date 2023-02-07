@@ -102,7 +102,7 @@ def extract_text(pdf_path):
         for page in pdf.pages:
             text += page.extract_text()
 
-    return normalize_text(text)
+    return (normalize_text(text), text,)
 
 
 URL = "https://www.polyu.edu.hk/en/comp/study/subject-offerings_22_23/"
@@ -119,54 +119,61 @@ for index, row in enumerate(table.find_all('tr')):
 arr = []
 
 
+def parse_availability(arr: list, row: string):
+    if (row == "Yes"):
+        arr.append("Available")
+    elif (row == "Day Class"):
+        arr.append("Day Class")
+    elif (row == "Night Class"):
+        arr.append("Night Class")
+    else:
+        arr.append("Unavailable")
+    return arr
+
+
 for index, row in enumerate(rows):
-    availability = ""
+    availability = []
 
     course = {
         "id": index + 1,
         "title": row[1],
         "code": row[0],
-        "name": '{} {}'.format(row[0], row[1]),
+        "name": "{} {}".format(row[0], row[1]),
         "is_active": True
     }
 
-    if (row[2] == 'Yes'):
-        availability += "A, "
-    elif (row[2] == 'Day Class'):
-        availability += "D, "
-    elif (row[2] == 'Night Class'):
-        availability += "N, "
-    else:
-        availability += "U, "
-
-    if (row[3] == 'Yes'):
-        availability += "A, "
-    elif (row[3] == 'Day Class'):
-        availability += "D, "
-    elif (row[3] == 'Night Class'):
-        availability += "N, "
-    else:
-        availability += "U, "
-
-    if (row[4] == 'Yes'):
-        availability += "A"
-    elif (row[4] == 'Day Class'):
-        availability += "D"
-    elif (row[4] == 'Night Class'):
-        availability += "N"
-    else:
-        availability += "U"
+    # get course availability from row with indices of 2, 3, 4
+    for i in range(3):
+        parse_availability(availability, row[i+2])
 
     course["availability"] = availability
 
+    # remove service learning course
     if "S" in course["code"]:
         continue
-
+    # remove courses with level higher than 4
     if int(course["code"][4]) > 4:
         continue
 
-    course["description"] = extract_text(
+    (normalized_desc, original_desc) = extract_text(
         'tools/scraper/pdfs/{}.pdf'.format(course["code"]))
+
+    course["description"] = normalized_desc
+
+    prerequisite_regex = "COMP\d{4}"
+
+    codes = re.findall(prerequisite_regex, original_desc)
+
+    for code in codes:
+        if code == course["code"]:
+            codes.remove(code)
+
+    prerequisites = []
+
+    for code in codes:
+        prerequisites.append(code)
+
+    course["prerequisites"] = prerequisites
 
     arr.append({
         "model": "base.Course",
@@ -175,13 +182,14 @@ for index, row in enumerate(rows):
             "title": course["title"],
             "code": course["code"],
             "name": course["name"],
+            "prerequisites": course["prerequisites"],
             "description": course["description"],
             "availability": course["availability"],
             "is_active": course["is_active"]
         }
     })
 
-# print(json.dumps(arr))s
+# print(json.dumps(arr))
 
 
 filepath = os.path.join(
