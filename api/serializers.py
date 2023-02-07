@@ -17,7 +17,7 @@ class CourseViewSerializer(ModelSerializer):
 
     class Meta:
         model = Course
-        fields = ['id', 'code', 'title', 'name', 'description',
+        fields = ['id', 'code', 'title', 'name', 'prerequisites', 'description',
                   'availability', 'is_active', 'created_at', 'updated_at', 'ratings']
         depth = 1
 
@@ -25,7 +25,7 @@ class CourseViewSerializer(ModelSerializer):
 class CourseCreateSerializer(ModelSerializer):
     class Meta:
         model = Course
-        fields = ['id', 'code', 'title', 'description',
+        fields = ['id', 'code', 'title', 'prerequisites', 'description',
                   'is_active', 'availability', 'created_at', 'updated_at']
 
 
