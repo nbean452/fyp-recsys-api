@@ -11,7 +11,7 @@ class Course(models.Model):
     name = models.CharField(max_length=210)
     description = models.TextField()
     availability = ArrayField(models.CharField(max_length=20), size=3)
-    prerequisites = ArrayField(models.CharField(max_length=100))
+    prerequisites = ArrayField(models.CharField(max_length=100), blank=True)
     is_active = models.BooleanField(default=False)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(default=timezone.now)
