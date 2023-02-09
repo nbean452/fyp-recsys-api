@@ -1,7 +1,8 @@
-from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User
+from django.contrib.postgres.fields import ArrayField
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.utils import timezone
-from django.contrib.postgres.fields import ArrayField
 
 
 class Course(models.Model):
@@ -30,13 +31,14 @@ class Course(models.Model):
         ordering = ('code',)
 
 
-class Rating(models.Model):
+class Review(models.Model):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(
-        get_user_model(), related_name='ratings', on_delete=models.CASCADE)
+        User, related_name='reviews', on_delete=models.CASCADE)
     course = models.ForeignKey(
-        Course, related_name='ratings', on_delete=models.CASCADE)
-    rating = models.SmallIntegerField()
+        Course, related_name='reviews', on_delete=models.CASCADE)
+    rating = models.SmallIntegerField(
+        validators=[MinValueValidator(1), MaxValueValidator(5)])
     comment = models.TextField()
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(default=timezone.now)

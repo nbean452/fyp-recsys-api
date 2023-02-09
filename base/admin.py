@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Course, Rating
+from .models import Course, Review
 
 # Register your models here.
 
@@ -10,4 +10,4 @@ class CourseAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Course, CourseAdmin)
-admin.site.register(Rating)
+admin.site.register(Review)

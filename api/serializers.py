@@ -1,24 +1,24 @@
 from rest_framework.serializers import ModelSerializer
 
 from authentication.serializers import UserSerializer
-from base.models import Course, Rating
+from base.models import Course, Review
 
 
-class UserRatingSerializer(ModelSerializer):
+class UserReviewSerializer(ModelSerializer):
     user = UserSerializer(read_only=True)
 
     class Meta:
-        model = Rating
+        model = Review
         exclude = ['course']
 
 
 class CourseViewSerializer(ModelSerializer):
-    ratings = UserRatingSerializer(read_only=True, many=True)
+    reviews = UserReviewSerializer(read_only=True, many=True)
 
     class Meta:
         model = Course
         fields = ['id', 'code', 'title', 'name', 'prerequisites', 'description',
-                  'availability', 'is_active', 'created_at', 'updated_at', 'ratings']
+                  'availability', 'is_active', 'reviews', 'created_at', 'updated_at']
         depth = 1
 
 
@@ -29,16 +29,16 @@ class CourseCreateSerializer(ModelSerializer):
                   'is_active', 'availability', 'created_at', 'updated_at']
 
 
-class RatingViewSerializer(ModelSerializer):
+class ReviewViewSerializer(ModelSerializer):
     user = UserSerializer(read_only=True)
 
     class Meta:
-        model = Rating
+        model = Review
         fields = '__all__'
         depth = 1
 
 
-class RatingCreateSerializer(ModelSerializer):
+class ReviewCreateSerializer(ModelSerializer):
     class Meta:
-        model = Rating
+        model = Review
         fields = '__all__'

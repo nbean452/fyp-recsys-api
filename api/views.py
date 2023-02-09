@@ -2,16 +2,16 @@ import pandas as pd
 from django.contrib.auth.models import User
 from django_pandas.io import read_frame
 from rest_framework import generics
-from rest_framework.permissions import AllowAny, IsAdminUser
+from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
 from rest_framework.response import Response
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 from authentication.permissions import IsProfileOwner
-from base.models import Course, Rating
+from base.models import Course, Review
 
 from .serializers import (CourseCreateSerializer, CourseViewSerializer,
-                          RatingCreateSerializer, RatingViewSerializer,
+                          ReviewCreateSerializer, ReviewViewSerializer,
                           UserSerializer)
 
 # class-based views
@@ -110,34 +110,34 @@ class CourseDeleteView(generics.DestroyAPIView):
     lookup_field = 'code'
 
 
-class RatingListView(generics.ListAPIView):
-    model = Rating
-    serializer_class = RatingViewSerializer
-    queryset = Rating.objects.all()
+class ReviewListView(generics.ListAPIView):
+    model = Review
+    serializer_class = ReviewViewSerializer
+    queryset = Review.objects.all()
 
 
-class RatingView(generics.RetrieveAPIView):
-    serializer_class = RatingViewSerializer
+class ReviewView(generics.RetrieveAPIView):
+    serializer_class = ReviewViewSerializer
     lookup_field = 'id'
-    queryset = Rating.objects.all()
+    queryset = Review.objects.all()
 
 
-class RatingCreateView(generics.CreateAPIView):
+class ReviewCreateView(generics.CreateAPIView):
+    permission_classes = [AllowAny]
+    queryset = Review.objects.all()
+    serializer_class = ReviewCreateSerializer
+
+
+class ReviewUpdateView(generics.UpdateAPIView):
     permission_classes = [IsAdminUser]
-    queryset = Rating.objects.all()
-    serializer_class = RatingCreateSerializer
-
-
-class RatingUpdateView(generics.UpdateAPIView):
-    permission_classes = [IsAdminUser]
-    queryset = Rating.objects.all()
+    queryset = Review.objects.all()
     lookup_field = 'id'
-    serializer_class = RatingCreateSerializer
+    serializer_class = ReviewCreateSerializer
 
 
-class RatingDeleteView(generics.DestroyAPIView):
+class ReviewDeleteView(generics.DestroyAPIView):
     permission_classes = [IsAdminUser]
-    queryset = Rating.objects.all()
+    queryset = Review.objects.all()
     lookup_field = 'id'
 
 
