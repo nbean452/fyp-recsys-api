@@ -148,12 +148,12 @@ class UserDetailUpdateView(generics.UpdateAPIView):
     serializer_class = UserDetailUpdateSerializer
 
 
-# class UserView(generics.RetrieveAPIView):
-#     permission_classes = [IsAccountOwner | IsAdminUser]
-#     model = User
-#     serializer_class = UserDetailSerializer
-#     lookup_field = 'username'
-#     queryset = User.objects.all()
+class UserView(generics.RetrieveAPIView):
+    permission_classes = [IsAccountOwner | IsAdminUser]
+    model = User
+    serializer_class = UserDetailSerializer
+    lookup_field = 'username'
+    queryset = User.objects.all()
 
 
 # class UserListView(generics.ListAPIView):
