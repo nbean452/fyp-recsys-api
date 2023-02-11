@@ -7,12 +7,12 @@ from rest_framework.response import Response
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-from authentication.permissions import IsProfileOwner
-from base.models import Course, Review
+from authentication.permissions import IsAccountOwner
+from base.models import Course, Review, UserDetail
 
 from .serializers import (CourseCreateSerializer, CourseViewSerializer,
                           ReviewCreateSerializer, ReviewViewSerializer,
-                          UserSerializer)
+                          UserDetailSerializer, UserDetailUpdateSerializer)
 
 # class-based views
 
@@ -141,30 +141,23 @@ class ReviewDeleteView(generics.DestroyAPIView):
     lookup_field = 'id'
 
 
-class UserView(generics.RetrieveAPIView):
-    permission_classes = [IsAdminUser | IsProfileOwner]
-    serializer_class = UserSerializer
-    lookup_field = 'username'
-    queryset = User.objects.all()
+class UserDetailUpdateView(generics.UpdateAPIView):
+    permission_classes = [IsAccountOwner]
+    queryset = UserDetail.objects.all()
+    lookup_field = 'user__username'
+    serializer_class = UserDetailUpdateSerializer
+
+
+# class UserView(generics.RetrieveAPIView):
+#     permission_classes = [IsAccountOwner | IsAdminUser]
+#     model = User
+#     serializer_class = UserDetailSerializer
+#     lookup_field = 'username'
+#     queryset = User.objects.all()
 
 
 class UserListView(generics.ListAPIView):
     permission_classes = [IsAdminUser]
     model = User
-    serializer_class = UserSerializer
+    serializer_class = UserDetailSerializer
     queryset = User.objects.all()
-
-
-# function-based views
-# @api_view(['GET'])
-# def getRatings(req):
-#     ratings = Rating.objects.all()
-#     serializer = RatingSerializer(ratings, many=True)
-#     return Response(serializer.data)
-
-# @api_view(['POST'])
-# def addCourse(req):
-#     serializer = CourseSerializer(data=req.data)
-#     if serializer.is_valid():
-#         serializer.save()
-#     return Response(serializer.data)
