@@ -2,10 +2,12 @@ from django.contrib.auth.models import User
 from rest_framework.permissions import BasePermission
 
 
-class IsProfileOwner(BasePermission):
+class IsAccountOwner(BasePermission):
     """
-    Allows access only to users who owns the profile.
+    Allows access only to users who owns the account.
     """
 
     def has_permission(self, request, view):
-        return request.user == User.objects.get(username=view.kwargs['username'])
+        username = view.kwargs.get(
+            'username') or view.kwargs.get('user__username')
+        return request.user == User.objects.get(username=username)
