@@ -19,6 +19,8 @@ urlpatterns = [
     path('review/delete/<int:id>/', views.ReviewDeleteView.as_view()),
     path('review/<int:id>/', views.ReviewView.as_view()),
 
-    path('users/', views.UserListView.as_view()),
+    #     path('users/', views.UserListView.as_view()),
     path('user/<str:username>/', views.UserView.as_view()),
+    path('user/courses/<str:user__username>/',
+         views.UserDetailUpdateView.as_view()),
 ]
