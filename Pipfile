@@ -7,6 +7,7 @@ name = "pypi"
 dev = "python manage.py runserver 9000"
 loaddata = "python manage.py loaddata base/batch_data/courses.json"
 admin = "python manage.py createsuperuser --noinput"
+dbshell = "python manage.py dbshell"
 
 [packages]
 django = "*"
