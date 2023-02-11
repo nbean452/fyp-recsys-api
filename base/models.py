@@ -5,6 +5,16 @@ from django.db import models
 from django.utils import timezone
 
 
+class UserDetail(models.Model):
+    user = models.OneToOneField(
+        User, on_delete=models.CASCADE, primary_key=True, related_name='detail')
+    taken_course = ArrayField(models.CharField(
+        max_length=20), blank=True, default=list)
+
+    def __str__(self):
+        return "{}'s activities".format(self.user.username)
+
+
 class Course(models.Model):
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=200)
@@ -12,7 +22,8 @@ class Course(models.Model):
     name = models.CharField(max_length=210)
     description = models.TextField()
     availability = ArrayField(models.CharField(max_length=20), size=3)
-    prerequisites = ArrayField(models.CharField(max_length=100), blank=True)
+    prerequisites = ArrayField(models.CharField(
+        max_length=100), blank=True, default=list)
     is_active = models.BooleanField(default=False)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(default=timezone.now)
