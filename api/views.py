@@ -156,8 +156,8 @@ class UserDetailUpdateView(generics.UpdateAPIView):
 #     queryset = User.objects.all()
 
 
-class UserListView(generics.ListAPIView):
-    permission_classes = [IsAdminUser]
-    model = User
-    serializer_class = UserDetailSerializer
-    queryset = User.objects.all()
+# class UserListView(generics.ListAPIView):
+#     permission_classes = [IsAdminUser]
+#     model = User
+#     serializer_class = UserDetailSerializer
+#     queryset = User.objects.all()
