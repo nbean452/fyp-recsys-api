@@ -11,8 +11,9 @@ from authentication.permissions import IsAccountOwner
 from base.models import Course, Review, UserDetail
 
 from .serializers import (CourseCreateSerializer, CourseViewSerializer,
-                          ReviewCreateSerializer, ReviewViewSerializer,
-                          UserDetailSerializer, UserDetailUpdateSerializer)
+                          ReviewCreateSerializer, ReviewUpdateSerializer,
+                          ReviewViewSerializer, UserDetailSerializer,
+                          UserDetailUpdateSerializer)
 
 # class-based views
 
@@ -92,7 +93,7 @@ class CourseRecommendationView(generics.RetrieveAPIView):
 
 
 class CourseCreateView(generics.CreateAPIView):
-    permission_classes = [AllowAny]
+    permission_classes = [IsAdminUser]
     queryset = Course.objects.all()
     serializer_class = CourseCreateSerializer
 
@@ -116,29 +117,32 @@ class ReviewListView(generics.ListAPIView):
     queryset = Review.objects.all()
 
 
-class ReviewView(generics.RetrieveAPIView):
-    serializer_class = ReviewViewSerializer
-    lookup_field = 'id'
-    queryset = Review.objects.all()
+# class ReviewView(generics.RetrieveAPIView):
+#     serializer_class = ReviewViewSerializer
+#     lookup_field = 'id'
+#     queryset = Review.objects.all()
 
 
 class ReviewCreateView(generics.CreateAPIView):
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
     queryset = Review.objects.all()
     serializer_class = ReviewCreateSerializer
+
+    def get_serializer_context(self):
+        return {'course': self.kwargs.get('id'), 'request': self.request, 'view': self, 'format': self.format_kwarg}
 
 
 class ReviewUpdateView(generics.UpdateAPIView):
-    permission_classes = [IsAdminUser]
+    permission_classes = [IsAuthenticated]
     queryset = Review.objects.all()
+    serializer_class = ReviewUpdateSerializer
     lookup_field = 'id'
-    serializer_class = ReviewCreateSerializer
 
 
-class ReviewDeleteView(generics.DestroyAPIView):
-    permission_classes = [IsAdminUser]
-    queryset = Review.objects.all()
-    lookup_field = 'id'
+# class ReviewDeleteView(generics.DestroyAPIView):
+#     permission_classes = [IsAdminUser]
+#     queryset = Review.objects.all()
+#     lookup_field = 'id'
 
 
 class UserDetailUpdateView(generics.UpdateAPIView):
@@ -148,7 +152,7 @@ class UserDetailUpdateView(generics.UpdateAPIView):
     serializer_class = UserDetailUpdateSerializer
 
 
-class UserView(generics.RetrieveAPIView):
+class UserDetailView(generics.RetrieveAPIView):
     permission_classes = [IsAccountOwner | IsAdminUser]
     model = User
     serializer_class = UserDetailSerializer

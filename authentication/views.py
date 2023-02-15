@@ -8,7 +8,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 
 from .serializers import RegisterSerializer
 
-from authentication.serializers import UserSerializer
+from api.serializers import UserDetailSerializer
 
 # Create your views here.
 
@@ -26,7 +26,7 @@ class LoginView(TokenObtainPairView):
 
         user = User.objects.get(username=request.data["username"])
 
-        user_serializer = UserSerializer(user).data
+        user_serializer = UserDetailSerializer(user).data
 
         json_response = {
             **user_serializer,
@@ -52,7 +52,7 @@ class RegisterView(generics.CreateAPIView, TokenObtainPairSerializer):
         user = User.objects.get(username=serializer.data["username"])
         refresh = self.get_token(user)
 
-        user_serializer = UserSerializer(user).data
+        user_serializer = UserDetailSerializer(user).data
 
         json_response = {
             **user_serializer,

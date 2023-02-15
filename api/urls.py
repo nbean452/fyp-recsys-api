@@ -13,14 +13,15 @@ urlpatterns = [
     path('recommend/course/<str:code>/',
          views.CourseRecommendationView.as_view()),
 
+    # reviews
     path('reviews/', views.ReviewListView.as_view()),
     path('review/add/', views.ReviewCreateView.as_view()),
-    path('review/edit/<int:id>/', views.ReviewUpdateView.as_view()),
-    path('review/delete/<int:id>/', views.ReviewDeleteView.as_view()),
-    path('review/<int:id>/', views.ReviewView.as_view()),
+    path('review/update/<int:id>/', views.ReviewUpdateView.as_view()),
+    #     path('review/delete/<int:id>/', views.ReviewDeleteView.as_view()),
+    #     path('review/<int:id>/', views.ReviewView.as_view()),
 
     #     path('users/', views.UserListView.as_view()),
-    path('user/<str:username>/', views.UserView.as_view()),
+    path('user/<str:username>/', views.UserDetailView.as_view()),
     path('user/courses/<str:user__username>/',
          views.UserDetailUpdateView.as_view()),
 ]
