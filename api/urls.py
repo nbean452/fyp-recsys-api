@@ -1,6 +1,6 @@
 from django.urls import path
 
-from . import views
+from api import views
 
 urlpatterns = [
     path('courses/', views.CourseListView.as_view()),
@@ -11,7 +11,7 @@ urlpatterns = [
 
     # recommendations!
     path('recommend/course/<str:code>/',
-         views.CourseRecommendationView.as_view()),
+         views.CourseCBFRecommendationView.as_view()),
 
     # reviews
     path('reviews/', views.ReviewListView.as_view()),

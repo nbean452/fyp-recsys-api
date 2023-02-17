@@ -18,4 +18,4 @@ Deployment link [here](https://capstone-api.nbenedictcodes.com)
 
 # Where is the Machine Learning code?
 
-Go to the `api/views.py` and find `CourseRecommendationView` class and see for yourself!
+Go to the `recommendations/` folder and feel free to take a look at each respective Content-Based Filtering and Collaborative Filtering recommendations!
