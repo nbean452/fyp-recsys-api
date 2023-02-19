@@ -8,6 +8,10 @@ from api.serializers import CourseViewSerializer
 from base.models import Course
 
 
+class CFMixin():
+    pass
+
+
 class CBFMixin():
     def retrieve(self, request, *args, **kwargs):
         # if kwargs not found, return 404 not found!

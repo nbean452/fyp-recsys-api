@@ -8,7 +8,7 @@ from api.serializers import (CourseCreateSerializer, CourseViewSerializer,
                              UserDetailUpdateSerializer)
 from authentication.permissions import IsAccountOwner
 from base.models import Course, Review, UserDetail
-from recommendations.cbf import CBFMixin
+from recommendations.mixins import CBFMixin, CFMixin
 
 # class-based views
 
