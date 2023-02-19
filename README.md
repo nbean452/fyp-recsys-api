@@ -10,12 +10,12 @@ For CF recommender system, I'll be gathering user reviews about each course and 
 
 Made using [Django](https://www.djangoproject.com/).
 
-# Deployment
+## Deployment
 
 Deployed as a dockerized app alongside Next.js app within Digital Ocean's droplet.
 
 Deployment link [here](https://capstone-api.nbenedictcodes.com)
 
-# Where is the Machine Learning code?
+## Q: Where is the Machine Learning code?
 
-Go to the `recommendations/` folder and feel free to take a look at each respective Content-Based Filtering and Collaborative Filtering recommendations!
+Go to `recommendations/mixins.py` and feel free to take a look at each respective Content-Based Filtering and Collaborative Filtering recommendations!
