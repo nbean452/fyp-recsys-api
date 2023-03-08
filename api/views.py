@@ -38,6 +38,12 @@ class CourseCBFRecommendationView(CBFMixin, generics.RetrieveAPIView):
     queryset = Course.objects.all()
 
 
+class CourseCFRecommendationView(CFMixin, generics.RetrieveAPIView):
+    serializer_class = CourseViewSerializer
+    lookup_field = "course__code"
+    queryset = Review.objects.all()
+
+
 class CourseCreateView(generics.CreateAPIView):
     permission_classes = [IsAdminUser]
     queryset = Course.objects.all()

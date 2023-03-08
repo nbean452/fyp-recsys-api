@@ -23,6 +23,8 @@ numpy = "*"
 django-pandas = "*"
 psycopg2-binary = "*"
 whitenoise = "*"
+pyspark = "*"
+findspark = "*"
 
 [dev-packages]
 requests = "*"

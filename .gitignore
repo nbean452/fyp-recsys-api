@@ -15,6 +15,8 @@ __pycache__/
 # PyCharm
 .idea
 
+model/
+
 # Distribution / packaging
 .Python
 build/

@@ -29,7 +29,7 @@ class Course(models.Model):
     updated_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return self.name
+        return '{} - {}'.format(self.id, self.name)
 
     def get_course_name(self):
         return '{} {}'.format(self.code, self.title)
