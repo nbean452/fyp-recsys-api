@@ -9,14 +9,19 @@ RUN mkdir -p /code
 
 RUN useradd --uid 10000 runner
 
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
+
 WORKDIR /code
 
 COPY requirements.txt /tmp/requirements.txt
 
-RUN set -ex && \
-    pip install --upgrade pip && \
-    pip install -r /tmp/requirements.txt && \
+RUN apt update -y && apt-get install -y software-properties-common && \
+    apt-add-repository 'deb http://security.debian.org/debian-security stretch/updates main' && apt update -y && \
+    apt-get install -y openjdk-8-jdk-headless && \
+    pip install --no-cache-dir -r /tmp/requirements.txt && \
     pip install psycopg2 && \
+    export JAVA_HOME && \
+    apt-get clean && \ 
     rm -rf /root/.cache/
 
 COPY . /code/
