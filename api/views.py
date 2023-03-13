@@ -39,6 +39,7 @@ class CourseCBFRecommendationView(CBFMixin, generics.RetrieveAPIView):
 
 
 class CourseCFRecommendationView(CFMixin, generics.RetrieveAPIView):
+    # permission_classes = [IsAccountOwner]
     serializer_class = CourseViewSerializer
     lookup_field = "id"
     queryset = User.objects.all()

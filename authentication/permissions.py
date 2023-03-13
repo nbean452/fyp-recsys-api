@@ -9,5 +9,5 @@ class IsAccountOwner(BasePermission):
 
     def has_permission(self, request, view):
         username = view.kwargs.get(
-            'username') or view.kwargs.get('user__username')
+            'username') or view.kwargs.get('user__username') or view.kwargs.get('id')
         return request.user == User.objects.get(username=username)
