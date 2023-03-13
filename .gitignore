@@ -8,6 +8,7 @@ __pycache__/
 
 # Related to this project!
 *.pdf
+*.csv
 
 # C extensions
 *.so
