@@ -10,7 +10,7 @@ urlpatterns = [
     path('course/<str:code>/', views.CourseView.as_view()),
 
     # recommendations!
-    path('recommend/course/<str:code>/',
+    path('recommend/cbf/<str:code>/',
          views.CourseCBFRecommendationView.as_view()),
     path('recommend/cf/<int:id>/',
          views.CourseCFRecommendationView.as_view()),
