@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
 
-    'base',
+    'base.apps.BaseConfig',
     'authentication'
 ]
 

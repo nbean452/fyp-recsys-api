@@ -1,0 +1,18 @@
+compulsory_courses = [
+    "COMP1002",
+    "COMP1011",
+    "COMP1411",
+    "COMP1433",
+    "COMP2011",
+    "COMP2012",
+    "COMP2021",
+    "COMP2322",
+    "COMP2411",
+    "COMP2421",
+    "COMP2432",
+    "COMP3211",
+    "COMP3334",
+    "COMP3423",
+    "COMP3438",
+    "COMP3511",
+]
