@@ -11,6 +11,7 @@ from nltk.corpus import wordnet
 from nltk.stem import WordNetLemmatizer
 from PyPDF2 import PdfReader
 
+# download the required dependencies!
 # nltk.download('wordnet')
 # nltk.download('averaged_perceptron_tagger')
 
@@ -189,6 +190,9 @@ for index, row in enumerate(rows):
         }
     })
 
+
+# for item in arr:
+#     print(item.get('fields').get('name'))
 # print(json.dumps(arr))
 
 
