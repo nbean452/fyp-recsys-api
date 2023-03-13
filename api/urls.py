@@ -12,7 +12,7 @@ urlpatterns = [
     # recommendations!
     path('recommend/course/<str:code>/',
          views.CourseCBFRecommendationView.as_view()),
-    path('recommend/cf/<str:course__code>/',
+    path('recommend/cf/<int:id>/',
          views.CourseCFRecommendationView.as_view()),
 
     # reviews
