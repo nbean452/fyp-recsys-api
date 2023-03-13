@@ -25,6 +25,8 @@ psycopg2-binary = "*"
 whitenoise = "*"
 pyspark = "*"
 findspark = "*"
+apscheduler = "*"
+supabase = "*"
 
 [dev-packages]
 requests = "*"
