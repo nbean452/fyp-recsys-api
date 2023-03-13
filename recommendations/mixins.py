@@ -2,7 +2,7 @@ import findspark
 import pandas as pd
 from django_pandas.io import read_frame
 from pyspark.ml.recommendation import ALSModel, DataFrame
-from pyspark.sql import SparkSession, SQLContext
+from pyspark.sql import SparkSession
 from rest_framework.response import Response
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -24,10 +24,8 @@ class CFMixin():
             .getOrCreate()
 
         survey_ratings = pd.read_csv(
-            'model/survey_results.csv', index_col=False)
-
-        app_ratings = pd.read_csv('model/als.csv', index_col=False)
-
+            'data/survey_results.csv', index_col=False)
+        app_ratings = pd.read_csv('data/app_ratings.csv', index_col=False)
         course_ratings = pd.concat([app_ratings, survey_ratings])
 
         best_model = ALSModel.load('model/')
