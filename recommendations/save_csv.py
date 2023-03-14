@@ -15,10 +15,12 @@ def get_client():
     key: str = os.environ.get("SUPABASE_DB_ANON_KEY")
     supabase: Client = create_client(url, key)
 
+    return supabase
+
 
 def save_app_ratings():
 
-    path = 'data/app_ratings.csv'
+    path = 'csv_data/app_ratings.csv'
 
     compulsory_course_ids = []
 
@@ -58,7 +60,7 @@ def save_app_ratings():
 
 
 def save_survey_results():
-    path = 'data/survey_results.csv'
+    path = 'csv_data/survey_results.csv'
 
     response = get_client().table("base_course").select(
         "id, code").order("id").execute()

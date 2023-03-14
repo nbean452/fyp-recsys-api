@@ -24,8 +24,8 @@ class CFMixin():
             .getOrCreate()
 
         survey_ratings = pd.read_csv(
-            'data/survey_results.csv', index_col=False)
-        app_ratings = pd.read_csv('data/app_ratings.csv', index_col=False)
+            'csv_data/survey_results.csv', index_col=False)
+        app_ratings = pd.read_csv('csv_data/app_ratings.csv', index_col=False)
         course_ratings = pd.concat([app_ratings, survey_ratings])
 
         best_model = ALSModel.load('model/')
