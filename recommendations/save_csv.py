@@ -1,20 +1,28 @@
-from operator import itemgetter
-import pandas as pd
 import os
+from operator import itemgetter
+
+import pandas as pd
+from dotenv import load_dotenv
 from supabase import Client, create_client
+
 from recommendations.constants import compulsory_courses
 
-url: str = os.environ.get("SUPABASE_URL")
-key: str = os.environ.get("SUPABASE_DB_ANON_KEY")
-supabase: Client = create_client(url, key)
+
+def get_client():
+    load_dotenv()
+
+    url: str = os.environ.get("SUPABASE_URL")
+    key: str = os.environ.get("SUPABASE_DB_ANON_KEY")
+    supabase: Client = create_client(url, key)
 
 
 def save_app_ratings():
+
     path = 'data/app_ratings.csv'
 
     compulsory_course_ids = []
 
-    response = supabase.table("base_course").select(
+    response = get_client().table("base_course").select(
         "id, code").order("id").execute()
 
     indices = []
@@ -32,7 +40,7 @@ def save_app_ratings():
             query_pd.index[query_pd["code"] == course].values[0])
 
     # get data from db
-    response = supabase.table("base_review").select(
+    response = get_client().table("base_review").select(
         "*").order("id").execute()
 
     # create dataframe from the db response
@@ -52,7 +60,7 @@ def save_app_ratings():
 def save_survey_results():
     path = 'data/survey_results.csv'
 
-    response = supabase.table("base_course").select(
+    response = get_client().table("base_course").select(
         "id, code").order("id").execute()
 
     indices = []
@@ -65,7 +73,7 @@ def save_survey_results():
     query_pd = pd.DataFrame(data, index=indices, columns=['code'])
 
     # get data from db
-    response = supabase.table("survey").select(
+    response = get_client().table("survey").select(
         "*").order("id").execute()
 
     # create dataframe from the db response
