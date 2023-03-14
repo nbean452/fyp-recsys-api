@@ -68,5 +68,10 @@ def start():
         year="*", month="*", day="*", hour="1", minute="0", second="0"
     )
 
-    scheduler.add_job(cron, name="train model daily", trigger=trigger)
+    scheduler.add_job(
+        cron,
+        name="train model daily",
+        trigger=trigger
+    )
+
     scheduler.start()
