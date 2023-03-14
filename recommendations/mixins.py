@@ -3,6 +3,7 @@ import pandas as pd
 from django_pandas.io import read_frame
 from pyspark.ml.recommendation import ALSModel, DataFrame
 from pyspark.sql import SparkSession
+from rest_framework import status
 from rest_framework.response import Response
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -69,7 +70,7 @@ class CFMixin():
         recs = make_recommendations(user_recs, kwargs['id'])
 
         if type(recs) is int:
-            return Response({"detail": "No data yet!"})
+            return Response({"detail": "No data yet!"}, status=status.HTTP_404_NOT_FOUND)
 
         # queried courses needs to be sorted based on rating
         return Response(get_sorted_courses(recs, 'cf'))
