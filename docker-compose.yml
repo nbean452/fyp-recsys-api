@@ -14,6 +14,7 @@ services:
       - ./.env
     volumes:
       - $PWD/csv_data:/code/csv_data:Z
+      - $PWD/model:/code/model:Z
 
   caddy:
     image: caddy/caddy:2.6.2-alpine

@@ -1,3 +1,6 @@
+import os
+import sys
+
 import findspark
 import pandas as pd
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -11,6 +14,9 @@ from recommendations.save_csv import save_app_ratings, save_survey_results
 
 
 def save_model():
+    os.environ['PYSPARK_PYTHON'] = sys.executable
+    os.environ['PYSPARK_DRIVER_PYTHON'] = sys.executable
+
     # init spark
     findspark.init()
 
@@ -23,8 +29,9 @@ def save_model():
     sqlContext = SQLContext(sc)
 
     # get concatenated data from survey and app
-    survey_ratings = pd.read_csv('data/survey_results.csv', index_col=False)
-    app_ratings = pd.read_csv('data/app_ratings.csv', index_col=False)
+    survey_ratings = pd.read_csv(
+        'csv_data/survey_results.csv', index_col=False)
+    app_ratings = pd.read_csv('csv_data/app_ratings.csv', index_col=False)
     course_ratings = pd.concat([app_ratings, survey_ratings])
 
     course_ratings = sqlContext.createDataFrame(course_ratings)
