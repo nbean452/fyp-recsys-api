@@ -16,6 +16,9 @@ RUN useradd --uid 1000 runner
 # enable this if running on ubuntu
 ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 
+# set timezone to hk, for reference (https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+ENV TZ=Asia/Hong_Kong
+
 ENV PYSPARK_SUBMIT_ARGS="--master local[3] pyspark-shell"
 
 WORKDIR /code
@@ -39,4 +42,4 @@ RUN python manage.py collectstatic --noinput
 
 USER 1000
 
-CMD ["/bin/sh", "-c", "python manage.py runserver 9000 --noreload"]
+CMD [ "python", "manage.py", "runserver", "0.0.0.0:9000", "--noreload" ]
