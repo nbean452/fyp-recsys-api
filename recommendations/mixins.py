@@ -71,7 +71,7 @@ class CFMixin():
         recs = make_recommendations(user_recs, kwargs['id'])
 
         if type(recs) is int:
-            return Response({"detail": "No data yet!"}, status=status.HTTP_404_NOT_FOUND)
+            return Response({"detail": "No Content"})
 
         # queried courses needs to be sorted based on rating
         return Response(get_sorted_courses(recs, 'cf'))
