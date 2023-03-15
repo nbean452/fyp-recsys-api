@@ -39,4 +39,5 @@ RUN python manage.py collectstatic --noinput
 
 USER 1000
 
-CMD [ "python", "manage.py", "runserver", "0.0.0.0:9000", "--noreload" ]
+# run server while saving output to logs.txt
+CMD ["python", "manage.py", "runserver", "0.0.0.0:9000", "--noreload", "|&", "tee", "-a", "server_data/logs.txt"]
