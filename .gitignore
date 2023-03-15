@@ -7,16 +7,14 @@ __pycache__/
 .DS_Store
 
 # Related to this project!
-*.pdf
-*.csv
+server_data/
+tools/scraper/pdfs
 
 # C extensions
 *.so
 
 # PyCharm
 .idea
-
-model/
 
 # Distribution / packaging
 .Python

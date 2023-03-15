@@ -30,8 +30,9 @@ def save_model():
 
     # get concatenated data from survey and app
     survey_ratings = pd.read_csv(
-        'csv_data/survey_results.csv', index_col=False)
-    app_ratings = pd.read_csv('csv_data/app_ratings.csv', index_col=False)
+        'server_data/csv/survey_results.csv', index_col=False)
+    app_ratings = pd.read_csv(
+        'server_data/csv/app_ratings.csv', index_col=False)
     course_ratings = pd.concat([app_ratings, survey_ratings])
 
     course_ratings = sqlContext.createDataFrame(course_ratings)
@@ -57,7 +58,7 @@ def save_model():
     model = cv.fit(train)
 
     best_model = model.bestModel
-    best_model.write().overwrite().save("model/")
+    best_model.write().overwrite().save("server_data/model/")
 
 # save data from survey and app ratings into csv, and then train the data!
 

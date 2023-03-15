@@ -20,7 +20,7 @@ def get_client():
 
 def save_app_ratings():
 
-    path = 'csv_data/app_ratings.csv'
+    path = 'server_data/csv/app_ratings.csv'
 
     compulsory_course_ids = []
 
@@ -60,7 +60,7 @@ def save_app_ratings():
 
 
 def save_survey_results():
-    path = 'csv_data/survey_results.csv'
+    path = 'server_data/csv/survey_results.csv'
 
     response = get_client().table("base_course").select(
         "id, code").order("id").execute()
