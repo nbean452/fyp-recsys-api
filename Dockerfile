@@ -8,7 +8,7 @@ ENV PYTHONUNBUFFERED 1
 RUN mkdir -p /code
 
 # create user group and add new user
-RUN groupadd -r runner && useradd -r -g runner runner
+RUN useradd --uid 1000 runner
 
 # enable this if running docker on apple silicon mac
 # ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-arm64
@@ -37,6 +37,6 @@ COPY . /code/
 
 RUN python manage.py collectstatic --noinput
 
-USER runner
+USER 1000
 
-CMD [ "python", "manage.py", "runserver", "0.0.0.0:9000" ]
+CMD [ "python", "manage.py", "runserver", "0.0.0.0:9000", "--noreload" ]
