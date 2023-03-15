@@ -4,8 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [scripts]
-dev = "python manage.py runserver 9000 |& tee -a server_data/logs.txt"
-prod = "python manage.py runserver 9000 --noreload |& tee -a server_data/logs.txt"
+dev = "python manage.py runserver 9000"
+prod = "python manage.py runserver 9000 --noreload"
 loaddata = "python manage.py loaddata base/batch_data/courses.json"
 admin = "python manage.py createsuperuser --noinput"
 dbshell = "python manage.py dbshell"
