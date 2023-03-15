@@ -71,14 +71,11 @@ def cron():
 def start():
     scheduler = BackgroundScheduler()
 
-    trigger = CronTrigger(
-        year="*", month="*", day="*", hour="1", minute="0", second="0"
-    )
-
     scheduler.add_job(
         cron,
-        name="train model daily",
-        trigger=trigger
+        "interval",
+        name="train model every hour",
+        minutes=60
     )
 
     scheduler.start()
