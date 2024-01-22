@@ -10,6 +10,13 @@ For CF recommender system, I'll be gathering user reviews about each course and 
 
 Made using [Django](https://www.djangoproject.com/).
 
+## Getting Started
+
+run `docker compose build api` to build the docker image
+run `docker compose build web` to build the docker image
+
+don't forget to run caddy server to reverse proxy the api server
+
 ## Deployment
 
 Deployed as a dockerized app alongside Next.js app within Digital Ocean's droplet.
