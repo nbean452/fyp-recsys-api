@@ -27,7 +27,7 @@ COPY . /code/
 RUN python manage.py collectstatic --noinput
 
 # Final stage
-FROM python:${PYTHON_VERSION}
+FROM --platform=linux/amd64 python:${PYTHON_VERSION}
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
