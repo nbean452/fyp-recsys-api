@@ -1,45 +1,49 @@
+# Builder stage
 ARG PYTHON_VERSION=3.10
 
-FROM python:${PYTHON_VERSION}
+FROM python:${PYTHON_VERSION} as builder
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-RUN mkdir -p /code
+WORKDIR /code
 
-# create user group and add new user
-RUN useradd --uid 1000 runner
+# Copy just the requirements.txt initially, to leverage Docker cache
+COPY requirements.txt /code/requirements.txt
 
-# enable this if running docker on apple silicon mac
-# ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-arm64
+# Installing dependencies
+RUN apt update -y && \
+    apt-get install -y software-properties-common default-jre && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /root/.cache/
 
-# enable this if running on ubuntu
+RUN pip install --no-cache-dir -r requirements.txt && \
+    pip install psycopg2
+
+# Copy the rest of the code
+COPY . /code/
+
+# Run collectstatic
+RUN python manage.py collectstatic --noinput
+
+# Final stage
+FROM python:${PYTHON_VERSION}
+
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-
-# set timezone to hk, for reference (https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 ENV TZ=Asia/Hong_Kong
-
 ENV PYSPARK_SUBMIT_ARGS="--master local[3] pyspark-shell"
 
 WORKDIR /code
 
-COPY requirements.txt /tmp/requirements.txt
-
-RUN apt update -y && \
-    apt-get install -y software-properties-common && \
-    apt-add-repository 'deb http://security.debian.org/debian-security stretch/updates main' && \
-    apt update -y && \
-    apt-get install -y openjdk-11-jdk && \
-    apt-get clean && \ 
-    rm -rf /root/.cache/
-
-RUN pip install --no-cache-dir -r /tmp/requirements.txt && \
-    pip install psycopg2
-
-COPY . /code/
-
-RUN python manage.py collectstatic --noinput
-
+# Create user and group
+RUN useradd --uid 1000 runner
 USER 1000
 
-CMD [ "python", "manage.py", "runserver", "0.0.0.0:9000", "--noreload" ]
+# Copy the built artifacts from the builder stage
+COPY --from=builder /code /code
+COPY --from=builder /usr/lib/jvm /usr/lib/jvm
+COPY --from=builder /usr/local/lib/python* /usr/local/lib/
+
+CMD ["python", "manage.py", "runserver", "0.0.0.0:9000", "--noreload"]
