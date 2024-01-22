@@ -75,8 +75,8 @@ def start():
     scheduler.add_job(
         cron,
         "interval",
-        name="train model every hour",
-        minutes=60
+        name="train model every month",
+        minutes=60 * 24 * 30,
     )
 
     scheduler.start()
