@@ -18,6 +18,5 @@ services:
       - $PWD/server_data:/code/server_data:Z
 
 networks:
-  default:
-    name: shared_network
+  shared_network:
     external: true
