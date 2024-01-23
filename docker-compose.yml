@@ -12,7 +12,9 @@ services:
     platform: linux/amd64
     image: nbean452/fyp-recsys-api
     build: .
-    env_file:
-      - ./.env
-    volumes:
-      - $PWD/server_data:/code/server_data:Z
+#    env file
+#    env_file:
+#      - ./.env
+#    volumes for storing data
+#    volumes:
+#      - $PWD/server_data:/code/server_data:Z
