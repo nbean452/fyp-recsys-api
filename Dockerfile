@@ -45,5 +45,7 @@ USER 1000
 COPY --from=builder /code /code
 COPY --from=builder /usr/lib/jvm /usr/lib/jvm
 COPY --from=builder /usr/local/lib/python* /usr/local/lib/
+COPY --from=builder /usr/local/lib/python3.10/site-packages /usr/local/lib/python3.10/site-packages
+
 
 CMD ["python", "manage.py", "runserver", "0.0.0.0:9000", "--noreload"]
