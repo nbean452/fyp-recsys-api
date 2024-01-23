@@ -3,20 +3,16 @@ version: "3.9"
 services:
   web:
     container_name: fyp-recsys-web
+    platform: linux/amd64
     image: nbean452/fyp-recsys-web
-    networks:
-      - shared_network
+    build: ../fyp-recsys-web/
 
   api:
     container_name: fyp-recsys-api
+    platform: linux/amd64
     image: nbean452/fyp-recsys-api
-    networks:
-      - shared_network
+    build: .
     env_file:
       - ./.env
     volumes:
       - $PWD/server_data:/code/server_data:Z
-
-networks:
-  shared_network:
-    external: true
