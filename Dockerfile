@@ -1,7 +1,7 @@
 # Builder stage
 ARG PYTHON_VERSION=3.10
 
-FROM --platform=linux/amd64 python:${PYTHON_VERSION} as builder
+FROM python:${PYTHON_VERSION} as builder
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
@@ -27,7 +27,7 @@ COPY . /code/
 RUN python manage.py collectstatic --noinput
 
 # Final stage
-FROM --platform=linux/amd64 python:${PYTHON_VERSION}
+FROM python:${PYTHON_VERSION}
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
