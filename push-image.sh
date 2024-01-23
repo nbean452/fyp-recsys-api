@@ -1,0 +1,1 @@
+docker compose build web api && docker compose push web api
